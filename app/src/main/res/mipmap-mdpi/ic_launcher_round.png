@@ -1,0 +1,102 @@
+package softage.ss.fullapis.ui.home.mainHome;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
+
+import softage.ss.fullapis.R;
+
+public class mainHomeFragment extends Fragment
+{
+
+    private View view ;
+
+    private Toolbar toolbar ;
+
+    private DrawerLayout drawerLayout;
+    String name ;
+
+
+    public mainHomeFragment(String nameToDialog)
+    {
+     this.name = nameToDialog ;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.fragment_main_home, null);
+        return view ;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+
+        initViews();
+
+        welcomeDialoge(name);
+        setUpBottomNav();
+        setUpNavDrawar();
+
+    }
+
+    private void initViews()
+    {
+
+//        drawerLayout = view.findViewById(R.id.drawer_layout);
+//        toolbar = view.findViewById(R.id.toolbar);
+
+    }
+
+    private void setUpNavDrawar()
+    {
+
+        Toolbar toolbar =view.findViewById(R.id.toolbar);
+        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
+        // Handle Toolbar
+//        setSupportActionBar(toolbar);
+//        toolbar.setTitle(R.string.app_name);
+//        getSupportActionBar().setTitle(R.string.app_name);
+
+        DrawerLayout drawer = view.findViewById(R.id.drawer_layout);
+        NavigationView navigationView = view.findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.teacherFragment, R.id.testFragment, R.id.proposalsFragment2)
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController((AppCompatActivity) require

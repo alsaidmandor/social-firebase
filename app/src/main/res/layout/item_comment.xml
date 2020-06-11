@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/comment_user_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/mosque"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/layout_comment_visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:padding="15dp"
+        android:background="@drawable/background_comment"
+        android:minWidth="180dp"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/comment_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alsaid Mandour"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/comment_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Cairo"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
